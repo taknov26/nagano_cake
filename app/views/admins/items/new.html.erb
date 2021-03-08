@@ -17,7 +17,7 @@
       </tr>
       <tr>
         <th>ジャンル</th>
-        <th><%= f.collection_select(:genre, @genres, :id, :name ) %></th>
+        <th><%= f.collection_select(:genre_id, @genres, :id, :name, {prompt: "--選択してください--" }) %></th>
       </tr>
       <tr>
         <th>税抜価格</th>
