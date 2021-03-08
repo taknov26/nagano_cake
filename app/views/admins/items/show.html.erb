@@ -1,6 +1,6 @@
 <h3>商品詳細</h3>
 
-<span><%= attachment_image_tag @item, :image, format:'jpeg', fallback: "m_e_others_500.jpg", size: "70x70" %></span>
+<span><%= attachment_image_tag @item, :image, format:'jpeg', fallback: "m_e_others_500.jpg", size: "100x100" %></span>
 <table>
   <tbody>
     <tr>
@@ -17,7 +17,7 @@
     </tr>
     <tr>
       <th>税込価格</br>(税抜価格)</th>
-      <th><%= @item.price %><%= addTax(@item.price,1.1) %>円</th>
+      <th><%= number_to_currency(@item.price) %><%= addTax(@item.price,1.1) %>円</th>
     </tr>
     <tr>
       <th>販売ステータス</th>

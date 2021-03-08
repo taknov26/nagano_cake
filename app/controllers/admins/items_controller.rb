@@ -1,6 +1,7 @@
 class Admins::ItemsController < ApplicationController
 
   def index
+    @items = Item.page(params[:page]).per(10)
   end
 
   def new
@@ -20,6 +21,7 @@ class Admins::ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    @genres = Genre.all
   end
 
   def update

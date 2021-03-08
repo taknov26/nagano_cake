@@ -1,0 +1,28 @@
+<h3>商品一覧</h3>
+<span><%= link_to '+', new_admins_item_path %></span>
+<table>
+  <thead>
+    <tr>
+      <th>商品id</th>
+      <th>商品名</th>
+      <th>税抜価格</th>
+      <th>ジャンル</th>
+      <th>ステータス</th>
+    </tr>
+  </thead>
+  <% @items.each do |item| %>
+  <tbody>
+    <tr>
+      <td><%= item.id %></td>
+      <td><%= link_to admins_item_path(item.id) do %>
+          <%= item.name %>
+          <% end %>
+      </td>
+      <td><%= number_to_currency(item.price) %></td>
+      <td><%= item.genre.name %></td>
+      <td><%= item.is_active %></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>
+<%= paginate @items %>
