@@ -1,0 +1,9 @@
+<h3>商品一覧(全<%= @items_count %>件)</h3>
+
+<% @items.each do |item| %>
+<div><%= attachment_image_tag item, :image, format:'jpeg', fallback: "m_e_others_500.jpg", size:"100x100" %></div>
+<div><%= item.name %></div>
+<div>￥<%= number_to_currency(item.price) %></div>
+<% end %>
+
+<%= paginate @items %>
