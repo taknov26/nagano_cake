@@ -17,7 +17,8 @@
           <% end %>
       </td>
       <td><%= order.customer.last_name %><%= order.customer.first_name %></td>
-      <!--<td><number_to_currency(item.price) %>orders_itemsの数量カラムの合計</td>-->
+      <td><%= order.all.sum(:amount)%></td>
+      <!--数量の合計出したい-->
       <td><%= order.orders_status %></td>
     </tr>
   </tbody>
