@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   }
   root :to => 'public/homes#top'
   get 'home/about' => 'public/homes#about' ,as: 'homes/about'
+  get '/customers/mypage/confirm' => 'public/customers#confirm' ,as: 'customers/confirm'
+  patch 'customer/release' => 'public/customers#release'
+
 
   namespace :admins do
     resources :items, only:[:index, :edit, :new, :show, :create, :update]
@@ -22,6 +25,7 @@ Rails.application.routes.draw do
 
   namespace :public do
     resources :items
+    resources :customers
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
