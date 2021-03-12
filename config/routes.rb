@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'home/about' => 'public/homes#about' ,as: 'homes/about'
   get '/customers/mypage/confirm' => 'public/customers#confirm' ,as: 'customers/confirm'
   patch 'customer/release' => 'public/customers#release'
+  delete 'cart_items/destroy_all' =>'public/cart_items#destroy_all'
 
 
   namespace :admins do
@@ -26,6 +27,8 @@ Rails.application.routes.draw do
   namespace :public do
     resources :items
     resources :customers
+    resources :addresses
+    resources :cart_items
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -1,0 +1,20 @@
+<span><%= attachment_image_tag @item, :image, format:'jpeg', fallback: "m_e_others_500.jpg", size:"100x100" %></span>
+<table>
+  <tbody>
+    <tr>
+      <th><%= @item.name %></th>
+    </tr>
+    <tr>
+      <td><%= @item.introduction %></td>
+    </tr>
+    <tr>
+      <td><%= @item.genre.name %></td>
+    </tr>
+    <tr>
+      <th>￥<%= addTax(@item.price,1.1) %>(税込)</th>
+    </tr>
+  </tbody>
+</table>
+<div>
+  カートに入れる
+</div>
