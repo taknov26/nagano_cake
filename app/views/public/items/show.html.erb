@@ -15,6 +15,10 @@
     </tr>
   </tbody>
 </table>
+
+<%= form_with model: @cart_item, url: public_item_cart_items_path(@item), local:true do |f| %>
 <div>
-  カートに入れる
+  <%= f.select :amount, [["1"], ["2"], ["3"], ["4"], ["5"], ["6"], ["7"], ["8"], ["9"], ["10"]], prompt: "数量選択" %><%= f.submit "カートに入れる" %>
+
 </div>
+<% end %>
