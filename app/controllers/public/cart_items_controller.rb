@@ -24,12 +24,21 @@ class Public::CartItemsController < ApplicationController
   end
 
   def create
-    # ifで分岐
     item = Item.find(params[:item_id])
     cart_item = item.cart_items.new(cart_item_params)
     cart_item.customer_id = current_customer.id
-    cart_item.save
-    redirect_to public_cart_items_path
+    if current_customer.cart_items.find_by(item_id: params[:item_id]).present?
+      # cart_item = current_customer.cart_items.find_by(item_id: params[:item_id])
+      # cart_item.amount += params[:amount].to_i
+      # cart_item.save
+     redirect_to public_cart_items_path
+
+    elsif cart_item.save
+     redirect_to public_cart_items_path
+
+    else
+     render '/'
+    end
   end
 
   private
