@@ -31,6 +31,8 @@ Rails.application.routes.draw do
     resources :cart_items, only:[:index, :update, :destroy]
     get '/customers/mypage/confirm' => 'customers#confirm' ,as: 'customers/confirm'
     patch 'customer/release' => 'customers#release'
+    post 'orders/confirm' => 'orders#confirm'
+    resources :orders
 
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
