@@ -6,4 +6,10 @@ class Order < ApplicationRecord
     credit: 1, #クレジットカード
     bank: 2, #銀行振込
   }
+
+  with_options presence: true do
+    validates :orders_name
+    validates :address
+    validates :postal_code
+  end
 end

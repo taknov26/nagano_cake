@@ -29,11 +29,16 @@ Rails.application.routes.draw do
     resources :addresses
     delete 'cart_items/destroy_all'
     resources :cart_items, only:[:index, :update, :destroy]
-    get '/customers/mypage/confirm' => 'customers#confirm' ,as: 'customers/confirm'
     patch 'customer/release' => 'customers#release'
     post 'orders/confirm' => 'orders#confirm'
-    resources :orders
+    get '/customers/mypage/confirm' => 'customers#confirm' ,as: 'customers/confirm'
+    resources :orders, only: [:new, :create] do
+      collection do
+        post 'orders/confirm' => 'orders#confirm'
+      end
+    end
+    resources :orders, only: [:show]
+    get 'orders/complete' => 'orders#complete'
 
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
