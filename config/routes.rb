@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     resources :genres, only:[:index, :create, :edit, :update]
     resources :customers, only:[:index, :show, :edit, :update]
     resources :orders, only:[:index, :show, :update, :edit]
+    resources :orders_items, only:[:create, :update]
 
   end
 
@@ -37,8 +38,7 @@ Rails.application.routes.draw do
         post 'orders/confirm' => 'orders#confirm'
       end
     end
-    resources :orders, only: [:show]
     get 'orders/complete' => 'orders#complete'
-
+    resources :orders, only: [:show, :index]
   end
 end

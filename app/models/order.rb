@@ -1,10 +1,11 @@
 class Order < ApplicationRecord
   belongs_to :customer
   has_many :orders_items
+  # accepts_nested_attributes_for :orders_items
 
   enum payment: {
-    credit: 1, #クレジットカード
-    bank: 2, #銀行振込
+    クレジットカード: 1, #クレジットカード
+    銀行: 2, #銀行振込
   }
 
   with_options presence: true do
