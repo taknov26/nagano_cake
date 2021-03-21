@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     registrations:  'public/customers/registrations'
   }
   root :to => 'public/homes#top'
+  get '/admin' => 'admins/homes#top' ,as: 'admins/top'
   get 'home/about' => 'public/homes#about' ,as: 'homes/about'
 
 

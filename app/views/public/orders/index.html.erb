@@ -21,10 +21,9 @@
       </td>
       <td>
         <% order.orders_items.each do |orders_item| %>
-        <% orders_item.item.name %></br>
+        <%= orders_item.item.name %></br>
         <% end %>
-        </td>
-        <!--要確認-->
+      </td>
       <td><%= number_to_currency(order.billing_amount) %></td>
       <td><%= order.orders_status %></td>
       <td><%= link_to "表示する", public_order_path(order.id) %></td>

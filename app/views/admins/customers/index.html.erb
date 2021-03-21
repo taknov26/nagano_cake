@@ -1,12 +1,13 @@
-<h3>会員一覧</h3>
+<div class="container mt-3">
+<h5 class="d-inline mb-10 bg-light">会員一覧</h5>
 
-<table>
-  <thead>
+<table class="table mt-3">
+  <thead class="thead-light">
     <tr>
-      <th>会員ID</th>
-      <th>氏名</th>
-      <th>メールアドレス</th>
-      <th>ステータス</th>
+      <th scope="col">会員ID</th>
+      <th scope="col">氏名</th>
+      <th scope="col">メールアドレス</th>
+      <th scope="col">ステータス</th>
     </tr>
   </thead>
   <% @customers.each do |customer| %>
@@ -25,3 +26,4 @@
 </table>
 
 <%= paginate @customers %>
+</div>

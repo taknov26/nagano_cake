@@ -16,3 +16,12 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+.topimage {
+  background-image: url(4246076_l.jpg);
+  background-size: cover;
+  width: 50%;
+  height: 250px;
+  margin: 10px auto;
+  background-position: center;
+  display: flex;
+}

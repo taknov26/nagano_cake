@@ -17,32 +17,9 @@
     </tr>
     <tr>
       <td>ステータス</td>
-      <td><%= orders_status %></td>
+      <td><%= @order.orders_status %></td>
     </tr>
   </tbody>
-</table>
-
-<table>
-<thead>
-  <tr>
-    <th>商品</th>
-    <th>単価(税込)</th>
-    <th>個数</th>
-    <th>小計</th>
-  </tr>
-</thead>
-<tbody>
-    <% sum = 0 %>
-    <% @order.orders_items.each do |order.orders_item| %>
-    <tr>
-      <td><%= order.orders_item.item.name %></td>
-      <td><%= order.orders_item.price %></td>
-      <td><%= order.orders_item.amount %></td>
-      <td><%=  order.orders_item.price.to_i*order.orders_item.amount.to_i %></td>
-    </tr>
-  </tbody>
-    <% sum +=  order.orders_item.price.to_i*order.orders_item.amount.to_i %>
-    <% end %>
 </table>
 
 <h4>請求情報</h4>
@@ -58,7 +35,28 @@
     </tr>
     <tr>
       <th>請求金額</th>
-      <td><%= number_to_currency(sum) %></td>
+      <td><%= number_to_currency(@order.billing_amount.to_i - @order.shipping.to_i) %></td>
     </tr>
   </tbody>
+</table>
+
+<table>
+<thead>
+  <tr>
+    <th>商品</th>
+    <th>単価(税込)</th>
+    <th>個数</th>
+    <th>小計</th>
+  </tr>
+</thead>
+<tbody>
+    <% @order.orders_items.each do |orders_item| %>
+    <tr>
+      <td><%= orders_item.item.name %></td>
+      <td><%= orders_item.price %></td>
+      <td><%= orders_item.amount %></td>
+      <td><%= orders_item.price.to_i*orders_item.amount.to_i %></td>
+    </tr>
+  </tbody>
+    <% end %>
 </table>

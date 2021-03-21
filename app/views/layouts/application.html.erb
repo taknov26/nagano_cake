@@ -13,61 +13,65 @@
     <header class="shadow-sm">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-          <a class="navbar-brand p-3" href="/"><% image_tag('logo.png') %></a>
-    <% if admin_signed_in? %>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav ml-auto">
-    <li class="nav-item">
-      <%= link_to "商品一覧", admins_items_path, class: 'nav-link text-dark' %>
-    </li>
-    <li class="nav-item">
-      <%= link_to "会員一覧", root_path, class: 'nav-link text-dark' %>
-    </li>
-    <li class="nav-item">
-      <%= link_to "注文履歴一覧", root_path, class: 'nav-link text-dark' %>
-    </li>
-    <li class="nav-item">
-      <%= link_to "ジャンル一覧", admins_genres_path, class: 'nav-link text-dark' %>
-    </li>
-    <li class="nav-item">
-      <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' %>
-    </li>
-    <% elsif customer_signed_in? %>
-    <div><%= welcome(current_customer.last_name) %></div>
-    <li class="nav-item">
-      <%= link_to "マイページ", public_customer_path(current_customer.id), class: 'nav-link text-dark' %>
-    </li>
-    <li>
-      <%= link_to "商品一覧", public_items_path, class: 'nav-link text-dark' %>
-    </li>
-    <li class="nav-item">
-      <%= link_to "カート", public_cart_items_path, class: 'nav-link text-dark' %>
-    </li>
-    <li class="nav-item">
-      <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link text-dark' %>
-    </li>
-    <% else %>
-    <li class="nav-item">
-      <%= link_to "About", homes_about_path, class: 'nav-link text-dark' %>
-    </li>
-    <li class="nav-item">
-      <%= link_to "商品一覧", root_path, class: 'nav-link text-dark' %>
-    </li>
-    <li class="nav-item">
-      <%= link_to "新規登録", new_customer_registration_path, class: 'nav-link text-dark' %>
-    </li>
-    <li class="nav-item">
-      <%= link_to "ログイン", new_customer_session_path, class: 'nav-link text-dark' %>
-    </li>
-    <% end %>
-    </ul>
-    </div>
-    </div>
-    </nav>
+          <a class="navbar-brand p-3" href="/"><%= image_tag('pinterest_profile_image (2).jpg') %></a>
+            <% if admin_signed_in? %>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                <%= link_to "商品一覧", admins_items_path, class: 'nav-link text-danger btn btn-outline-danger mr-2' %>
+                </li>
+                <li class="nav-item">
+                <%= link_to "会員一覧", admins_customers_path, class: 'nav-link text-danger btn btn-outline-danger mr-2' %>
+                </li>
+                <li class="nav-item">
+                <%= link_to "注文履歴一覧", admins_top_path, class: 'nav-link text-danger btn btn-outline-danger mr-2' %>
+                </li>
+                <li class="nav-item">
+                <%= link_to "ジャンル一覧", admins_genres_path, class: 'nav-link text-danger btn btn-outline-danger mr-2' %>
+                </li>
+                <li class="nav-item">
+                <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-danger btn btn-outline-danger' %>
+                </li>
+              </ul>
+            <% elsif customer_signed_in? %>
+              <div><%= welcome(current_customer.last_name) %></div>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+              <%= link_to "マイページ", public_customer_path(current_customer.id), class: 'nav-link text-light btn btn-danger mr-2' %>
+              </li>
+              <li>
+              <%= link_to "商品一覧", public_items_path, class: 'nav-link text-light btn btn-danger mr-2' %>
+              </li>
+              <li class="nav-item">
+              <%= link_to "カート", public_cart_items_path, class: 'nav-link text-light btn btn-danger mr-2' %>
+              </li>
+              <li class="nav-item">
+              <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link text-light btn btn-danger' %>
+              </li>
+            </ul>
+            <% else %>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+              <%= link_to "About", homes_about_path, class: 'nav-link text-secondary btn btn-outline-secondary mr-2' %>
+              </li>
+              <li class="nav-item">
+              <%= link_to "商品一覧", root_path, class: 'nav-link text-secondary btn btn-outline-secondary mr-2' %>
+              </li>
+              <li class="nav-item">
+              <%= link_to "新規登録", new_customer_registration_path, class: 'nav-link text-secondary btn btn-outline-secondary mr-2' %>
+              </li>
+              <li class="nav-item">
+              <%= link_to "ログイン", new_customer_session_path, class: 'nav-link text-secondary btn btn-outline-secondary' %>
+              </li>
+            </ul>
+            <% end %>
+          </div>
+        </div>
+      </nav>
     </header>
-    <main class="mb-aito">
+    <main class="mb-auto">
     <%= yield %>
     </main>
-    <footer class="bg-dark text-white pt-5 pb-4"></footer>
+    <footer class="shadow-sm bg-danger mt-5 pt-5 pb-3"></footer>
   </body>
 </html>
