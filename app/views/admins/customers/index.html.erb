@@ -19,7 +19,7 @@
           <% end %>
       </td>
       <td><%= customer.email %></td>
-      <td><%= status(customer.is_active) %></td>
+      <td><%= customer_status(customer.is_active) %></td>
     </tr>
   </tbody>
   <% end %>

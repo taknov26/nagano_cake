@@ -1,5 +1,5 @@
 module Admins::CustomersHelper
-  def status(status)
+  def customer_status(status)
     if status == true
       "有効"
     else

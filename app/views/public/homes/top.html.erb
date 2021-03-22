@@ -1,15 +1,35 @@
-  <div class="topimage">
-      <h4 class="text-white">ようこそ、ながのCAKEへ！</h4>
-      <p class="text-white">このサイトは、ケーキ販売のECサイトになります。</br>
-        会員でない⽅も商品の閲覧はできますが、</br>
-        購⼊には会員登録が必要になります。
-      </p>
+<div class="container mt-3">
+  <div class="card w-50 mx-auto shadow-lg text-white">
+    <%= image_tag('4246076_l.jpg') %>
+    <div class="card-img-overlay">
+      <div class="row">
+        <div class="col-lg-10 mx-auto mt-5">
+          <h3 class="card-title text-center">ようこそ、ながのCAKEへ！</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <p  class="card-text text-center">このサイトは、ケーキ販売のECサイトになります。</br>
+            会員でない⽅も商品の閲覧はできますが、</br>
+            購⼊には会員登録が必要になります。
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 
-<h2>新着商品</h2>
-<% @items.each do |item| %>
-<div><%= attachment_image_tag item, :image, format:'jpeg', fallback: "m_e_others_500.jpg", size:"100x100" %></div>
-<div><%= item.name %></div>
-<div>￥<%= number_to_currency(item.price) %></div>
-<% end %>
-<div><%= link_to"全ての商品を見る", public_items_path %></div>
+
+  <h5 class="d-inline mb-10 bg-light mt-3">新着商品</h5>
+  <div class="row mt-2">
+    <% @items.each do |item| %>
+    <div class="col-lg-3">
+      <div class="card w-100 mx-auto shadow-sm">
+        <div class="card-img-top text-center"><%= attachment_image_tag item, :image, format:'jpeg', fallback: "m_e_others_500.jpg", size:"150x150" %></div>
+        <div class="card-title mx-auto"><%= item.name %></div>
+        <div class="text mx-auto">￥<%= number_to_currency(item.price) %></div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <div class="text-right"><%= link_to"全ての商品を見る >>", public_items_path, class: "btn btn-outline-danger mt-3" %></div>
+</div>

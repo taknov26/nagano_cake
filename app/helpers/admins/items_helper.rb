@@ -8,7 +8,7 @@ module Admins::ItemsHelper
     "#{price.to_s(:delimited, delimiter: ',')}"
   end
 
-  def status(status)
+  def item_status(status)
     if status == true
       "販売中"
     else
