@@ -1,23 +1,24 @@
-<span><%= attachment_image_tag @item, :image, format:'jpeg', fallback: "m_e_others_500.jpg", size: "100x100" %></span>
-<table>
-  <tbody>
-    <tr>
-      <th><%= @item.name %></th>
-    </tr>
-    <tr>
-      <td><%= @item.introduction %></td>
-    </tr>
-    <tr>
-      <td><%= @item.genre.name %></td>
-    </tr>
-    <tr>
-      <th>￥<%= addTax(@item.price,1.1) %>(税込)</th>
-    </tr>
-  </tbody>
-</table>
-
-<%= form_with model: @cart_item, url: public_item_cart_items_path(@item), local:true do |f| %>
-<div>
-  <%= f.select :amount, [["1"], ["2"], ["3"], ["4"], ["5"], ["6"], ["7"], ["8"], ["9"], ["10"]], prompt: "数量選択" %><%= f.submit "カートに入れる" %>
+<div class="container mt-3">
+  <div class="row mx-auto">
+    <div class="col-lg-6 text-center">
+      <%= attachment_image_tag @item, :image, format:'jpeg', fallback: "m_e_others_500.jpg", size: "200x200" %>
+    </div>
+    <div class="col-lg-6 mx-auto">
+      <h3><%= @item.name %></h3>
+          <p><%= @item.introduction %></p>
+          <p><%= @item.genre.name %></p>
+          <p>￥<%= addTax(@item.price,1.1) %>(税込)</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6">
+    </div>
+    <div class="col-lg-6">
+      <%= form_with model: @cart_item, url: public_item_cart_items_path(@item), local:true do |f| %>
+      <div>
+        <%= f.select :amount, [["1"], ["2"], ["3"], ["4"], ["5"], ["6"], ["7"], ["8"], ["9"], ["10"]], prompt: "数量選択" %><%= f.submit "カートに入れる" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
 </div>
-<% end %>

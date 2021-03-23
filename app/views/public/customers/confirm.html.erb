@@ -1,8 +1,17 @@
-<h3><strong>本当に退会しますか？</strong></h3>
-<p>退会すると、会員登録情報や</br>
-   これまでの購⼊履歴が閲覧できなくなります。</br>
-   退会する場合は、「退会する」をクリックしてください。
-</p>
-
-<%= link_to "退会しない", public_customer_path(current_customer.id) %>
-<%= link_to "退会する", customer_release_path(@customer), method: :patch %>
+<div class="container mt-">
+   <div class="row">
+      <div class="col-12 mx-auto text-center">
+         <h3><strong>本当に退会しますか？</strong></h3>
+         <p>退会すると、会員登録情報や</br>
+            これまでの購⼊履歴が閲覧できなくなります。</br>
+            退会する場合は、「退会する」をクリックしてください。
+         </p>
+      </div>
+   </div>
+   <div class="row">
+      <div class="col-12 text-center">
+         <%= link_to "退会しない", public_customer_path(current_customer.id), class: "btn btn-outline-danger mt-3 mr-5" %>
+         <%= link_to "退会する", public_customer_release_path(@customer), method: :patch, class: "btn btn-danger mt-3 ml-5" %>
+      </div>
+   </div>
+</div>
