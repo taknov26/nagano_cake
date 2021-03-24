@@ -5,7 +5,7 @@ class Order < ApplicationRecord
 
   enum payment: {
     クレジットカード: 1, #クレジットカード
-    銀行: 2, #銀行振込
+    銀行振込: 2, #銀行振込
   }
 
   with_options presence: true do

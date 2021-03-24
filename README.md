@@ -1,24 +1,26 @@
-# README
+# ながのCAKEのECサイト
+御覧いただきありがとうございます。こちらはプログラミング学習中に作成したサンプルECサイトです。カート機能や、注文確定処理までの流れが一番苦労しましたが、プログラミングの考え方や、機能の実装のいい練習になりました。
+ちなみに「ながのCAKE」はカリキュラム上の名前のため、特に意味はございません。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# 機能
+管理者画面と顧客画面があります。
 
-Things you may want to cover:
+## 管理者画面について
+以下操作が可能です。
+	・商品登録・編集
+	・商品ジャンル登録・編集
+	・注文情報閲覧
+	・注文ステータス編集
+	・注文商品製作ステータス編集
+	・会員情報閲覧
+	・会員情報編集
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 顧客画面について
+以下操作が可能です。
+	・会員情報登録・編集
+	・配送先住所登録・編集
+	・商品情報閲覧
+	・カートへ商品追加
+	・注文情報入力
+	・注文
+	・注文情報閲覧

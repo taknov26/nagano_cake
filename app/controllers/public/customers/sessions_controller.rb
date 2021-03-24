@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Public::Customers::SessionsController < Devise::SessionsController
+  before_action :reject_inactive_customer, only: [:create]
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
@@ -25,7 +26,7 @@ class Public::Customers::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
 
-  def reject_inactive_user
+  def reject_inactive_customer
     @customer = Customer.find_by(email: params[:customer][:email])
     if @customer
       if @customer.valid_password?(params[:customer][:password]) && !@customer.is_active
@@ -33,4 +34,14 @@ class Public::Customers::SessionsController < Devise::SessionsController
       end
     end
   end
+  def reject_inactive_user
+    @customer = Customer.find_by(name: params[:customer][:email])
+    if @ucustomer
+      if @customer.valid_password?(params[:customer][:password]) && !@customer.is_valid
+        redirect_to new_customer_session_path
+      end
+    end
+  end
+
+
 end

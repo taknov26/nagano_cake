@@ -23,9 +23,8 @@
       </tr>
       <tr>
         <th scope="col">ステータス</th>
-        <%= form_with model: @order, url: admins_order_path(@order), method: :patch, local:true do |f| %>
-        <td><%= f.select :orders_status, [["入金待ち","0"], ["入金確認","1"], ["製作中","2"], ["発送準備中","3"], ["発送済み","4"]] %><%= f.submit "更新", class: "btn btn-warning ml-2 p-1 btn-sm" %></td>
-        <% end %>
+        <td><%= form_with model: @order, url: admins_order_path(@order), method: :patch, local:true do |f| %>
+        <%= f.select :orders_status, [["入金待ち","0"], ["入金確認","1"], ["製作中","2"], ["発送準備中","3"], ["発送済み","4"]] %><%= f.submit "更新", class: "btn btn-warning ml-2 p-1 btn-sm" %><% end %></td>
       </tr>
     </tbody>
   </table>
@@ -51,9 +50,8 @@
           <td><%= orders_item.price %></td>
           <td><%= orders_item.amount %></td>
           <td><%= orders_item.price.to_i*orders_item.amount.to_i %></td>
-          <%= form_with model: orders_item, url: admins_orders_item_path(orders_item.id), method: :patch, local:true do |f| %>
-          <td><%= f.select :make_status, [["着手不可","0"], ["製作待ち","1"], ["製作中","2"], ["製作完了","3"]] %><%= f.submit "更新", class: "btn btn-warning ml-2 p-1 btn-sm" %></td>
-          <% end %>
+          <td><%= form_with model: orders_item, url: admins_orders_item_path(orders_item.id), method: :patch, local:true do |f| %>
+          <%= f.select :make_status, [["着手不可","0"], ["製作待ち","1"], ["製作中","2"], ["製作完了","3"]] %><%= f.submit "更新", class: "btn btn-warning ml-2 p-1 btn-sm" %><% end %></td>
         </tr>
       </tbody>
         <% end %>
