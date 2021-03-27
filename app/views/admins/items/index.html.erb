@@ -26,5 +26,9 @@
   <% end %>
 </table>
 <%= link_to '商品追加', new_admins_item_path, class: "btn btn-danger" %>
-<span class="mx-auto"><%= paginate @items %></span>
+  <div class ="row mx-auto">
+    <div class="col-lg-12 text-center">
+      <%= paginate @items %>
+      </div>
+  </div>
 </div>
